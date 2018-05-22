@@ -5,7 +5,8 @@
 #include "../util.h"
 
 const char *
-load_avg(void)
+//load_avg(void)
+load_avg(const char *fmt)
 {
 	double avgs[3];
 
@@ -14,5 +15,6 @@ load_avg(void)
 		return NULL;
 	}
 
-	return bprintf("%.2f %.2f %.2f", avgs[0], avgs[1], avgs[2]);
+	//return bprintf("%.2f %.2f %.2f", avgs[0], avgs[1], avgs[2]);
+        return bprintf(fmt, avgs[0], avgs[1], avgs[2]);
 }
