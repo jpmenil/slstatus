@@ -58,9 +58,9 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-        { load_avg, " %s|", "%.2f" },
-        { cpu_perc, " %s%|", NULL },
-        { run_command, " %s|", "~/bin/wifi" },
+        { load_avg, "⚙ %s|", "%.2f" },
+        { cpu_perc, "☣ %s%|", NULL },
+        { run_command, "✈ %s|", "~/bin/wifi" },
         { battery_perc, "⚡ %s%|", "BAT0" },
         { run_command, "♫ %s|", "~/bin/get_volume" },
         { datetime, "%s", "%a %m.%d  %T" },
