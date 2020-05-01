@@ -11,6 +11,7 @@ COM =\
 	components/datetime\
 	components/disk\
 	components/entropy\
+	components/get_volume\
 	components/hostname\
 	components/ip\
 	components/kernel_release\
@@ -25,7 +26,6 @@ COM =\
 	components/temperature\
 	components/uptime\
 	components/user\
-	components/volume\
 	components/wifi
 
 all: slstatus
@@ -40,7 +40,7 @@ config.h:
 	cp config.def.h $@
 
 slstatus: slstatus.o $(COM:=.o) $(REQ:=.o)
-	$(CC) -o $@ $(LDFLAGS) $(COM:=.o) $(REQ:=.o) slstatus.o $(LDLIBS)
+	$(CC) -lasound -o $@ $(LDFLAGS) $(COM:=.o) $(REQ:=.o) slstatus.o $(LDLIBS)
 
 clean:
 	rm -f slstatus slstatus.o $(COM:=.o) $(REQ:=.o)

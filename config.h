@@ -63,7 +63,6 @@ static const struct arg args[] = {
         { wifi_perc, " %2s%%┊", "wlan0" },
         { battery_state, "%s", "BAT0" },
         { battery_perc, " %s%┊", "BAT0" },
-        { run_command, "♫ %s┊", "~/bin/get_volume" },
+        { vol_perc2, "♫ %s┊", "default" },
         { datetime, "%s", "%a %m/%d %T" },
-        //	{ datetime, "%s",           "%F %T" },
 };
