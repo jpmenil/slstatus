@@ -57,7 +57,8 @@ static const char unknown_str[] = "n/a";
  * wifi_essid           WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
+        /* function format          argument */
+        { run_command, "%s┊", "~/bin/xsetcmus.sh" },
         { load_avg, " %s┊", "%.2f" },
         { cpu_perc, " %s%┊", NULL },
         { wifi_perc, " %2s%%┊", "wlan0" },
