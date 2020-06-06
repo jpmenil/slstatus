@@ -61,9 +61,9 @@ static const struct arg args[] = {
         { run_command, "%s┊", "~/bin/xsetcmus.sh" },
         { load_avg, " %s┊", "%.2f" },
         { cpu_perc, " %s%┊", NULL },
-        { wifi_perc, " %2s%%┊", "wlan0" },
+        { wifi_perc, " %2s%%┊", "wlan0" },
         { battery_state, "%s", "BAT0" },
         { battery_perc, " %s%┊", "BAT0" },
-        { vol_perc2, "♫ %s┊", "default" },
+        { vol_perc2, " %s%┊", "default" },
         { datetime, "%s", "%a %m/%d %T" },
 };
