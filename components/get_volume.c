@@ -4,7 +4,7 @@
 
 #include "../util.h"
 
-const char *vol_perc2()
+const char *vol_perc()
 {
     snd_mixer_t* handle;
     snd_mixer_elem_t* elem;
@@ -13,7 +13,7 @@ const char *vol_perc2()
     static const char* mix_name = "Master";
     static const char* card = "default";
     static int mix_index = 0;
-    static int ret;
+    static int psw, ret;
     long minv, maxv, outvol;
 
     snd_mixer_selem_id_alloca(&sid);
@@ -42,10 +42,17 @@ const char *vol_perc2()
         snd_mixer_close(handle);
         return NULL;
     }
-    snd_mixer_selem_get_playback_volume_range (elem, &minv, &maxv);
-    if(snd_mixer_selem_get_playback_volume(elem, 0, &outvol) < 0) {
+    snd_mixer_selem_get_playback_volume_range(elem, &minv, &maxv);
+    if (snd_mixer_selem_get_playback_volume(elem, 0, &outvol) < 0) {
         snd_mixer_close(handle);
         return NULL;
+    }
+
+    if (snd_mixer_selem_has_playback_switch(elem)) {
+        if (snd_mixer_selem_get_playback_switch(elem, 0, &psw) < 0) {
+            snd_mixer_close(handle);
+            return NULL;
+        }
     }
 
     snd_mixer_close(handle);
@@ -56,5 +63,5 @@ const char *vol_perc2()
     minv = 0;
     outvol = 100 * outvol / maxv; // make the value bound from 0 to 100
 
-    return bprintf("%ld", outvol);
+    return bprintf("%s %ld", psw ? "" : "", outvol);
 }

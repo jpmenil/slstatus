@@ -58,12 +58,13 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
         /* function format          argument */
-        { run_command, "%s┊", "~/bin/xsetcmus.sh" },
+        { run_command, "%s", "~/bin/xsetcmus.sh" },
         { load_avg, " %s┊", "%.2f" },
         { cpu_perc, " %s%┊", NULL },
+        { temp, " %s┊", "/sys/class/thermal/thermal_zone2/temp"},
         { wifi_perc, " %2s%%┊", "wlan0" },
         { battery_state, "%s", "BAT0" },
         { battery_perc, " %s%┊", "BAT0" },
-        { vol_perc2, " %s%┊", "default" },
-        { datetime, "%s", "%a %m/%d %T" },
+        { vol_perc, "%s%┊", "default" },
+        { datetime, " %s", "%a %m/%d %T" },
 };
