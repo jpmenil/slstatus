@@ -4,7 +4,7 @@
 
 #include "../util.h"
 
-const char *vol_perc()
+const char *vol_perc_jp()
 {
     snd_mixer_t* handle;
     snd_mixer_elem_t* elem;

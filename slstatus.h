@@ -78,6 +78,7 @@ const char *uid(void);
 
 /* volume */
 const char *vol_perc(const char *card, const char *mix_name);
+const char *vol_perc_jp(const char *card, const char *mix_name);
 
 /* wifi */
 const char *wifi_perc(const char *interface);
